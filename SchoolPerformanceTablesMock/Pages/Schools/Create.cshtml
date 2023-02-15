@@ -1,0 +1,70 @@
+@page
+@model SchoolPerformanceTablesMock.Pages.Schools.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>School</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="School.Name" class="control-label"></label>
+                <input asp-for="School.Name" class="form-control" />
+                <span asp-validation-for="School.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="School.SchoolType" class="control-label"></label>
+                <input asp-for="School.SchoolType" class="form-control" />
+                <span asp-validation-for="School.SchoolType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="School.MinAge" class="control-label"></label>
+                <input asp-for="School.MinAge" class="form-control" />
+                <span asp-validation-for="School.MinAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="School.MaxAge" class="control-label"></label>
+                <input asp-for="School.MaxAge" class="form-control" />
+                <span asp-validation-for="School.MaxAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="School.OfstedRating" class="control-label"></label>
+                <input asp-for="School.OfstedRating" class="form-control" />
+                <span asp-validation-for="School.OfstedRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="School.Website" class="control-label"></label>
+                <input asp-for="School.Website" class="form-control" />
+                <span asp-validation-for="School.Website" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="School.EducationPhase" class="control-label"></label>
+                <input asp-for="School.EducationPhase" class="form-control" />
+                <span asp-validation-for="School.EducationPhase" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="School.LocalAuthority" class="control-label"></label>
+                <input asp-for="School.LocalAuthority" class="form-control" />
+                <span asp-validation-for="School.LocalAuthority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

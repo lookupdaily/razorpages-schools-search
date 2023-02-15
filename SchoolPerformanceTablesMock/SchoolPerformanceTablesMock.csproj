@@ -1,0 +1,76 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+      <Content Remove="wwwroot\css\**" />
+      <Content Remove="wwwroot\js\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Pages\Schools" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EntityFramework" Version="6.4.4" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="wwwroot\css\**" />
+      <Compile Remove="wwwroot\js\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="wwwroot\css\**" />
+      <EmbeddedResource Remove="wwwroot\js\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="wwwroot\css\**" />
+      <None Remove="wwwroot\js\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\css\site.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\site.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\assets\fonts\bold-affa96571d-v2.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\assets\fonts\bold-b542beb274-v2.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\assets\fonts\light-94a07e06a1-v2.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\assets\fonts\light-f591b13f7d-v2.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\assets\images\favicon.ico" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\assets\images\govuk-apple-touch-icon-152x152.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\assets\images\govuk-apple-touch-icon-167x167.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\assets\images\govuk-apple-touch-icon-180x180.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\assets\images\govuk-apple-touch-icon.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\assets\images\govuk-crest-2x.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\assets\images\govuk-crest.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\assets\images\govuk-logotype-crown.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\assets\images\govuk-mask-icon.svg" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\assets\images\govuk-opengraph-image.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\17deccf4893ace95587f.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\21f1c6a8f3d3286095cb.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\3f1948ba2d60954324da.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\726d26cf0a4dcbd94775.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\78e53426eb42e70389a8.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\842e04932899d4c35b9a.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\main.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\site.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\site.js" />
+    </ItemGroup>
+
+</Project>
