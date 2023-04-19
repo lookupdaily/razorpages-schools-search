@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using SchoolPerformanceTablesMock.Data;
 using SchoolPerformanceTablesMock.Models;
-using SchoolPerformanceTablesMock.Services;
-using SchoolPerformanceTablesMock.Services.Interfaces;
+using SchoolPerformanceTablesMock.Repositories;
+using SchoolPerformanceTablesMock.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<SchoolPerformanceTablesMockContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("SchoolPerformanceTablesMockContext") ?? throw new InvalidOperationException("Connection string 'SchoolPerformanceTablesMockContext' not found.")));
-builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddTransient(typeof(ISchoolRepository), typeof(SchoolRepository));
 
 var app = builder.Build();
 

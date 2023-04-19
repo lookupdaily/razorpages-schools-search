@@ -1,30 +1,24 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using SchoolPerformanceTablesMock.Data;
 using SchoolPerformanceTablesMock.Models;
-using SchoolPerformanceTablesMock.Services.Interfaces;
+using SchoolPerformanceTablesMock.Repositories.Interfaces;
 
 namespace SchoolPerformanceTablesMock.Pages.Schools
 {
     public class DetailsModel : PageModel
     {
-        private readonly IRepository<School> _repository;
+        private readonly ISchoolRepository _schoolRepository;
 
-        public DetailsModel(IRepository<School> repository)
+        public DetailsModel(ISchoolRepository schoolRepository)
         {
-            _repository = repository;
+            _schoolRepository = schoolRepository;
         }
 
       public School School { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            var school = await _repository.GetById(id);
+            var school = await _schoolRepository.GetById(id);
             
             if (school == null)
             {

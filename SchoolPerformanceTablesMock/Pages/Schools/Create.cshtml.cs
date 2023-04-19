@@ -1,17 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SchoolPerformanceTablesMock.Models;
-using SchoolPerformanceTablesMock.Services.Interfaces;
+using SchoolPerformanceTablesMock.Repositories.Interfaces;
 
 namespace SchoolPerformanceTablesMock.Pages.Schools
 {
     public class CreateModel : PageModel
     {
-        private readonly IRepository<School> _repository;
+        private readonly ISchoolRepository _schoolRepository;
 
-        public CreateModel(IRepository<School> repository)
+        public CreateModel(ISchoolRepository schoolRepository)
         {
-            _repository = repository;
+            _schoolRepository = schoolRepository;
         }
 
         public IActionResult OnGet()
@@ -31,7 +31,7 @@ namespace SchoolPerformanceTablesMock.Pages.Schools
               return Page();
           }
 
-          await _repository.CreateAsync(School);
+          await _schoolRepository.CreateAsync(School);
 
           return RedirectToPage("./Index");
         }

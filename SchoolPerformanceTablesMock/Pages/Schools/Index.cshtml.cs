@@ -1,23 +1,37 @@
+using System.Collections;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SchoolPerformanceTablesMock.Models;
-using SchoolPerformanceTablesMock.Services.Interfaces;
+using SchoolPerformanceTablesMock.Repositories.Interfaces;
 
 namespace SchoolPerformanceTablesMock.Pages.Schools
 {
     public class IndexModel : PageModel
     {
-        private readonly IRepository<School> _repository;
+        private readonly ISchoolRepository _schoolRepository;
 
-        public IndexModel(IRepository<School> repository)
+        public IndexModel(ISchoolRepository schoolRepository)
         {
-            _repository = repository;
+            _schoolRepository = schoolRepository;
         }
 
-        public IList<School> School { get;set; } = default!;
+        public IEnumerable<School> School { get;set; } = default!;
+
+        [BindProperty(SupportsGet = true)] public string SchoolNameOrUrn { get; set; } = "";
 
         public async Task OnGetAsync()
         {
-            School = await _repository.GetAll();
+            IEnumerable<School> schools;
+            if (SchoolNameOrUrn != "")
+            {
+                schools = await _schoolRepository.GetByNameOrUrn(SchoolNameOrUrn);
+            }
+            else
+            {
+                schools = _schoolRepository.GetAll();
+            }
+
+            School = schools;
         }
     }
 }
