@@ -14,7 +14,7 @@
         <p>
             <a href="#" class="govuk-link">What information can I find here?</a>
         </p>
-        
+        <form>
         <fieldset>
             <legend class="visuallyhidden">Select a search type option</legend>
             <div class="govuk-tabs" data-module="govuk-tabs">
@@ -48,10 +48,11 @@
                       </div>
                       <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-nameOrReference">
                         <div class="govuk-form-group">
-                          <label class="govuk-label govuk-!-font-weight-bold" for="schoolNameOrURN">
-                            Enter school or college name or URN
+                          <label class="govuk-label govuk-!-font-weight-bold" asp-for="SchoolNameOrUrn">
+                            Enter school or college name
                           </label>
-                          <input class="govuk-input govuk-!-width-one-third" id="schoolNameOrURN" name="schoolNameOrURN" type="text" spellcheck="false">
+                            <input class="govuk-input govuk-!-width-one-third" type="text" spellcheck="false" asp-for="SchoolNameOrUrn">
+                            <input type="submit" value="Search" />
                         </div>
                       </div>
                       <div class="govuk-radios__item">
@@ -91,7 +92,7 @@
                 </div>
             </div>
         </fieldset>
-        
+        </form>
     </div>
     
     <div class="govuk-grid-column-two-thirds">
@@ -102,28 +103,28 @@
                 <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.School[0].Name)
+                        @Html.DisplayNameFor(model => model.School.First().Name)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.School[0].SchoolType)
+                        @Html.DisplayNameFor(model => model.School.First().SchoolType)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.School[0].MinAge)
+                        @Html.DisplayNameFor(model => model.School.First().MinAge)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.School[0].MaxAge)
+                        @Html.DisplayNameFor(model => model.School.First().MaxAge)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.School[0].OfstedRating)
+                        @Html.DisplayNameFor(model => model.School.First().OfstedRating)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.School[0].Website)
+                        @Html.DisplayNameFor(model => model.School.First().Website)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.School[0].EducationPhase)
+                        @Html.DisplayNameFor(model => model.School.First().EducationPhase)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.School[0].LocalAuthority)
+                        @Html.DisplayNameFor(model => model.School.First().LocalAuthority)
                     </th>
                     <th></th>
                 </tr>
