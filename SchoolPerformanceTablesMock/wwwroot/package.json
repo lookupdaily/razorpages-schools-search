@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "accessible-autocomplete": "^2.0.4",
     "govuk-frontend": "^4.5.0"
   },
   "devDependencies": {

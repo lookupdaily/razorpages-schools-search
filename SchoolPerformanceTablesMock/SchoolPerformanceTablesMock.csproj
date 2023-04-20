@@ -16,10 +16,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Pages\Schools" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="EntityFramework" Version="6.4.4" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.2" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
@@ -71,6 +67,17 @@
       <_ContentIncludedByDefault Remove="wwwroot\dist\main.js" />
       <_ContentIncludedByDefault Remove="wwwroot\dist\site.css" />
       <_ContentIncludedByDefault Remove="wwwroot\dist\site.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\616e5f212d1bb513477e.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\accessible-autocomplete.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\accessible-autocomplete.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\accessible-autocomplete.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\b092ddd69e01e5fb0b66.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\bb962e0c1aef34ea7e4a.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\f03d82c283b021916f42.woff" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\lib\accessible-autocomplete.preact.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\lib\accessible-autocomplete.preact.min.js.map" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\lib\accessible-autocomplete.react.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\dist\lib\accessible-autocomplete.react.min.js.map" />
     </ItemGroup>
 
 </Project>

@@ -15,157 +15,157 @@
             <a href="#" class="govuk-link">What information can I find here?</a>
         </p>
         <form>
-        <fieldset>
-            <legend class="visuallyhidden">Select a search type option</legend>
-            <div class="govuk-tabs" data-module="govuk-tabs">
-              <h2 class="govuk-tabs__title">
-                Contents
-              </h2>
-              <ul class="govuk-tabs__list">
-                <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-                  <a class="govuk-tabs__tab" href="#search-schools">
-                    Find a school or college
-                  </a>
-                </li>
-                  <li class="govuk-tabs__list-item">
-                      <a class="govuk-tabs__tab" href="#search-academies">
-                          Find a multi-academy trust
-                      </a>
-                  </li>
-              </ul>
-              <div class="govuk-tabs__panel" id="search-schools">
-                <h2 class="govuk-heading-l visuallyhidden">Find a school or college</h2>
-              <div class="govuk-form-group">
-                <div id="contact-hint" class="govuk-hint">
-                      Select one option.
+            <fieldset>
+                <legend class="visuallyhidden">Select a search type option</legend>
+                <div class="govuk-tabs" data-module="govuk-tabs">
+                    <h2 class="govuk-tabs__title">
+                        Contents
+                    </h2>
+                    <ul class="govuk-tabs__list">
+                        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                            <a class="govuk-tabs__tab" href="#search-schools">
+                                Find a school or college
+                            </a>
+                        </li>
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="#search-academies">
+                                Find a multi-academy trust
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="govuk-tabs__panel" id="search-schools">
+                        <h2 class="govuk-heading-l visuallyhidden">Find a school or college</h2>
+                        <div class="govuk-form-group">
+                            <div id="contact-hint" class="govuk-hint">
+                                Select one option.
+                            </div>
+                            <div class="govuk-radios" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="nameOrReference" name="searchForSchoolsType" type="radio" value="SearchByName" data-aria-controls="conditional-nameOrReference">
+                                    <label class="govuk-label govuk-radios__label" for="nameOrReference">
+                                        Name or reference number
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-nameOrReference">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-!-font-weight-bold" asp-for="Id">
+                                            Enter school or college name
+                                        </label>
+                                        <partial name="_Autocomplete" model="@Model.AutoCompleteSearchModel"/>
+                                        <input type="submit" value="Search" asp-page="./Details" asp-route-id="@Model.Id"/> 
+                                    </div>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="SearchByLocation" name="searchForSchoolsType" type="radio" value="SearchByLocation" data-aria-controls="conditional-SearchByLocation">
+                                    <label class="govuk-label govuk-radios__label" for="SearchByLocation">
+                                        Location
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-SearchByLocation">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-!-font-weight-bold" for="SchoolLocation">
+                                            Enter a town, city or postcode in England
+                                        </label>
+                                        <input class="govuk-input govuk-!-width-one-third" id="SchoolLocation" name="SchoolLocation" type="text">
+                                    </div>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="SearchByAuthority" name="searchForSchoolsType" type="radio" value="SearchByAuthority" data-aria-controls="conditional-SearchByAuthority">
+                                    <label class="govuk-label govuk-radios__label" for="SearchByAuthority">
+                                        Local authority
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-SearchByAuthority">
+                                    <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-!-font-weight-bold" for="SchoolAuthority">
+                                            Enter local authority name or code
+                                        </label>
+                                        <input class="govuk-input govuk-!-width-one-third" id="SchoolAuthority" name="SchoolAuthority" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="govuk-radios" data-module="govuk-radios">
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="nameOrReference" name="searchForSchoolsType" type="radio" value="SearchByName" data-aria-controls="conditional-nameOrReference">
-                        <label class="govuk-label govuk-radios__label" for="nameOrReference">
-                          Name or reference number
-                        </label>
-                      </div>
-                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-nameOrReference">
-                        <div class="govuk-form-group">
-                          <label class="govuk-label govuk-!-font-weight-bold" asp-for="SchoolNameOrUrn">
-                            Enter school or college name
-                          </label>
-                            <input class="govuk-input govuk-!-width-one-third" type="text" spellcheck="false" asp-for="SchoolNameOrUrn">
-                            <input type="submit" value="Search" />
-                        </div>
-                      </div>
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="SearchByLocation" name="searchForSchoolsType" type="radio" value="SearchByLocation" data-aria-controls="conditional-SearchByLocation">
-                        <label class="govuk-label govuk-radios__label" for="SearchByLocation">
-                          Location
-                        </label>
-                      </div>
-                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-SearchByLocation">
-                        <div class="govuk-form-group">
-                          <label class="govuk-label govuk-!-font-weight-bold" for="SchoolLocation">
-                            Enter a town, city or postcode in England
-                          </label>
-                          <input class="govuk-input govuk-!-width-one-third" id="SchoolLocation" name="SchoolLocation" type="text">
-                        </div>
-                      </div>
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="SearchByAuthority" name="searchForSchoolsType" type="radio" value="SearchByAuthority" data-aria-controls="conditional-SearchByAuthority">
-                        <label class="govuk-label govuk-radios__label" for="SearchByAuthority">
-                          Local authority
-                        </label>
-                      </div>
-                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-SearchByAuthority">
-                        <div class="govuk-form-group">
-                          <label class="govuk-label govuk-!-font-weight-bold" for="SchoolAuthority">
-                            Enter local authority name or code
-                          </label>
-                          <input class="govuk-input govuk-!-width-one-third" id="SchoolAuthority" name="SchoolAuthority" >
-                        </div>
-                      </div>
-                    </div>
-              </div>
-              </div>
-                <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="search-academies">
-                    <h2 class="govuk-heading-l visuallyhidden">Find a multi-academy trust</h2>
+                    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="search-academies">
+                        <h2 class="govuk-heading-l visuallyhidden">Find a multi-academy trust</h2>
                     
+                    </div>
                 </div>
-            </div>
-        </fieldset>
+            </fieldset>
         </form>
     </div>
     
     <div class="govuk-grid-column-two-thirds">
         <p>
-                <a class="govuk-link" asp-page="Create">Create New</a>
-            </p>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.School.First().Name)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.School.First().SchoolType)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.School.First().MinAge)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.School.First().MaxAge)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.School.First().OfstedRating)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.School.First().Website)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.School.First().EducationPhase)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.School.First().LocalAuthority)
-                    </th>
-                    <th></th>
+            <a class="govuk-link" asp-page="Create">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.School.First().Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.School.First().SchoolType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.School.First().MinAge)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.School.First().MaxAge)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.School.First().OfstedRating)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.School.First().Website)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.School.First().EducationPhase)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.School.First().LocalAuthority)
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.School)
+            {
+                <tr id="">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SchoolType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MinAge)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaxAge)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OfstedRating)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Website)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EducationPhase)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LocalAuthority)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
                 </tr>
-                </thead>
-                <tbody>
-                @foreach (var item in Model.School)
-                {
-                    <tr id="">
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SchoolType)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MinAge)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MaxAge)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.OfstedRating)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Website)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.EducationPhase)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LocalAuthority)
-                        </td>
-                        <td>
-                            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                        </td>
-                    </tr>
-                }
-                </tbody>
-            </table>
+            }
+            </tbody>
+        </table>
     </div>
     
 </div>
